@@ -1,55 +1,23 @@
 <!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Заявление после устного отказа в МРЭО — RK Автоправо</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-<main class="wrap">
-  <section class="card">
-    <p class="eyebrow">RK АВТОПРАВО • ГЕНЕРАТОР ЗАЯВЛЕНИЯ</p>
-    <h1>Заявление после устного отказа в регистрации транспортного средства</h1>
-    <p class="lead">Заявление готовится заранее и используется после фактического отказа в регистрации, если письменное решение об отказе не предоставлено.</p>
-    <form id="generator">
-      <fieldset><legend>1. Подразделение МРЭО</legend>
-        <label>Наименование подразделения МРЭО<input id="mreo" type="text" placeholder="Например: МРЭО Госавтоинспекции ..." required></label>
-      </fieldset>
-      <fieldset><legend>2. Персональные данные заявителя</legend>
-        <label>Фамилия<input id="lastName" type="text" autocomplete="family-name" required></label>
-        <label>Имя<input id="firstName" type="text" autocomplete="given-name" required></label>
-        <label>Отчество<input id="middleName" type="text" autocomplete="additional-name" placeholder="При наличии"></label>
-        <label>Адрес места жительства<textarea id="address" rows="3" autocomplete="street-address" required></textarea></label>
-        <label>Телефон<input id="phone" type="tel" autocomplete="tel" placeholder="+7 ..."></label>
-      </fieldset>
-      <fieldset><legend>3. Данные транспортного средства</legend>
-        <label>Марка и модель<input id="vehicle" type="text" required></label>
-        <label>VIN (номер кузова / шасси)<input id="vin" type="text" required></label>
-        <label>Год выпуска<input id="year" type="text" inputmode="numeric" required></label>
-        <label>Государственный регистрационный знак
-          <input id="plate" type="text" placeholder="При наличии">
-        </label>
-        <label>Серия и номер свидетельства о регистрации / техпаспорта
-          <input id="regDoc" type="text" placeholder="При наличии">
-        </label>
-        <label>Кем выдан документ
-          <input id="regIssuer" type="text" placeholder="При наличии сведений">
-        </label>
-        <label>Дата выдачи документа
-          <input id="regDate" type="text" placeholder="ДД.ММ.ГГГГ">
-        </label>
-      </fieldset>
-      <fieldset><legend>4. Ваш статус в отношении транспортного средства</legend>
-        <label class="choice"><input type="radio" name="vehicleStatus" value="owner" required> Собственник по свидетельству о регистрации транспортного средства</label>
-        <label class="choice"><input type="radio" name="vehicleStatus" value="holder" required> Владелец — не являюсь собственником по свидетельству о регистрации транспортного средства</label>
-      </fieldset>
-      <div style="margin:18px 0;padding:14px;background:#f6f7f8;border-radius:10px"><label style="display:block"><input type="checkbox" required> Я даю <a href="../personal-data-consent/" target="_blank" rel="noopener">согласие на обработку персональных данных</a> для формирования документа и подтверждаю ознакомление с <a href="../privacy-policy/" target="_blank" rel="noopener">Политикой обработки персональных данных</a>.</label><label style="display:block;margin-top:10px"><input type="checkbox" required> Я принимаю <a href="../terms/" target="_blank" rel="noopener">Пользовательское соглашение</a>.</label><p style="margin:10px 0 0;font-size:13px;color:#66727d">Содержимое полей обрабатывается локально в браузере и не сохраняется владельцем сервиса.</p></div><button type="submit">Сформировать черновик заявления</button>
-    </form>
-    <section id="result" class="result" hidden><h2>Черновик заявления</h2><pre id="documentText"></pre></section>
-    <p class="notice">Генератор создаётся поэтапно. Сейчас согласованы персональные данные, подразделение МРЭО, данные автомобиля и статус заявителя. Основание владения для заявителя, который не указан собственником в свидетельстве о регистрации, добавим следующим этапом.</p>
-    <p class="version">Рабочая версия • RK Автоправо</p><div style="margin-top:18px;font-size:13px"><a href="../privacy-policy/">Политика обработки персональных данных</a> · <a href="../personal-data-consent/">Согласие на обработку персональных данных</a> · <a href="../terms/">Пользовательское соглашение</a></div>
-  </section>
-</main>
-<script src="script.js"></script>
-</body></html>
+<body><main class="wrap"><section class="card">
+<p class="eyebrow">RK АВТОПРАВО • ГЕНЕРАТОР ЗАЯВЛЕНИЯ</p>
+<h1>Заявление после устного отказа в регистрации транспортного средства</h1>
+<p class="lead">Сервис не запрашивает персональные данные и данные автомобиля. В готовом заявлении для них оставляются пустые поля, которые можно заполнить вручную после печати.</p>
+<form id="generator">
+  <fieldset><legend>Статус заявителя в отношении транспортного средства</legend>
+    <label class="choice"><input type="radio" name="vehicleStatus" value="owner" required> Собственник по свидетельству о регистрации транспортного средства</label>
+    <label class="choice"><input type="radio" name="vehicleStatus" value="holder" required> Владелец — не являюсь собственником по свидетельству о регистрации транспортного средства</label>
+  </fieldset>
+  <button type="submit">Сформировать черновик заявления</button>
+</form>
+<section id="result" class="result" hidden><h2>Черновик заявления</h2><pre id="documentText"></pre></section>
+<p class="notice">Ф.И.О., адрес, телефон, подразделение МРЭО и сведения об автомобиле в браузере не вводятся. Эти данные остаются пустыми строками в документе для заполнения вручную.</p>
+<p class="version">Рабочая версия • RK Автоправо</p>
+<div style="margin-top:18px;font-size:13px"><a href="../privacy-policy/">Политика обработки персональных данных</a> · <a href="../terms/">Пользовательское соглашение</a></div>
+</section></main><script src="script.js"></script></body></html>
