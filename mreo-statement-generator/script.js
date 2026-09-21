@@ -1,0 +1,14 @@
+const form=document.getElementById("generator"),wrap=document.getElementById("outputWrap"),output=document.getElementById("output");
+const val=id=>document.getElementById(id).value.trim();
+const safe=s=>s.replace(/[<>]/g,"");
+form.addEventListener("submit",e=>{e.preventDefault();
+ const fio=safe(val("fio")),address=safe(val("address")),phone=safe(val("phone")),mreo=safe(val("mreo"))||"Начальнику регистрационного подразделения Госавтоинспекции";
+ const car=safe(val("car")),year=safe(val("year")),vin=safe(val("vin")),plate=safe(val("plate")),docs=safe(val("docs")),facts=safe(val("facts")),purpose=val("purpose");
+ let request="Прошу провести регистрационные действия в отношении принадлежащего мне транспортного средства.";
+ if(purpose==="accept") request="Прошу принять представленные документы, рассмотреть настоящее заявление и принять решение по существу.";
+ if(purpose==="written") request="Прошу рассмотреть вопрос о совершении регистрационных действий. В случае отказа прошу предоставить письменное решение с указанием фактических и правовых оснований.";
+ const lines=[mreo,"","от: "+fio,"адрес: "+address+(phone?"\nтелефон: "+phone:""),"","ЗАЯВЛЕНИЕ","",request,"","Транспортное средство: "+car+(year?", "+year+" г.в.":"")+".","VIN: "+vin+(plate?"\nГосударственный регистрационный знак: "+plate:"")+".",docs?"\nИмеющиеся документы: "+docs+".":"",facts?"\nДополнительные обстоятельства: "+facts:"","\nПрошу сообщить о принятом решении в установленном порядке.","","Дата: ____________     Подпись: ____________ / "+fio+" /"];
+ output.textContent=lines.filter(x=>x!=="").join("\n"); wrap.hidden=false;wrap.scrollIntoView({behavior:"smooth"});
+});
+document.getElementById("copy").addEventListener("click",async()=>{try{await navigator.clipboard.writeText(output.textContent);document.getElementById("copyStatus").textContent="Текст скопирован."}catch(e){document.getElementById("copyStatus").textContent="Не удалось скопировать автоматически. Выделите текст вручную."}});
+document.getElementById("clear").addEventListener("click",()=>{form.reset();wrap.hidden=true;document.getElementById("copyStatus").textContent="";window.scrollTo({top:0,behavior:"smooth"})});
