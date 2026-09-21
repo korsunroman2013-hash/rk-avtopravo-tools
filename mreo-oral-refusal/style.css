@@ -8,3 +8,9 @@
 .result .document .doc-body p{display:block!important;margin:0 0 14px!important}
 .result .document .doc-basis{margin:0 0 14px!important}
 @media(max-width:600px){.result .document{padding:24px 18px!important;font-size:15px!important}.result .document .doc-header{width:62%!important}}
+
+.result .document .doc-request{text-align:center!important;margin:24px 0 18px!important}
+.result .document .doc-signature{display:flex!important;justify-content:space-between!important;gap:30px!important;margin-top:32px!important;text-align:left!important}
+.result .document .doc-signature span{font-size:13px!important}
+@media(max-width:600px){.result .document .doc-signature{display:block!important}.result .document .doc-signature>div{margin-top:18px!important}}
+@media print{.result .document .doc-signature{display:flex!important}}
