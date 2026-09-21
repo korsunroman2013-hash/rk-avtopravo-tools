@@ -2,22 +2,14 @@
 <html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Тестовый генератор заявления в МРЭО — RK Автоправо</title><link rel="stylesheet" href="style.css"></head>
 <body><main class="wrap"><section class="card"><p class="eyebrow">RK АВТОПРАВО • ТЕСТОВЫЙ ГЕНЕРАТОР</p>
-<h1>Генератор заявления в МРЭО</h1><p class="lead">Заполните данные — сервис сформирует черновик заявления, который можно проверить, скопировать, скачать или распечатать.</p>
-<form id="generator"><div class="grid">
-<label>ФИО заявителя<input id="fio" required placeholder="Иванов Иван Иванович"></label>
-<label>Адрес<input id="address" required placeholder="Город, улица, дом"></label>
-<label>Телефон<input id="phone" placeholder="+7 ..."></label>
-<label>Подразделение МРЭО<input id="mreo" placeholder="Например: МРЭО ГИБДД ..."></label>
-<label>Марка и модель<input id="car" required placeholder="Renault Duster"></label>
-<label>Год выпуска<input id="year" type="number" min="1900" max="2100" placeholder="2016"></label>
-<label>VIN<input id="vin" required placeholder="VIN автомобиля"></label>
-<label>Госномер<input id="plate" placeholder="Если имеется"></label></div>
+<h1>Генератор заявления в МРЭО</h1>
+<p class="lead">Сервис не запрашивает персональные данные и данные автомобиля. Выберите назначение заявления — в готовом бланке останутся пустые поля для заполнения вручную.</p>
+<form id="generator">
 <label>Что требуется?<select id="purpose" required><option value="">Выберите вариант</option><option value="register">Провести регистрационные действия</option><option value="accept">Принять документы и рассмотреть заявление</option><option value="written">Получить письменное решение при отказе</option></select></label>
-<label>Какие документы имеются?<textarea id="docs" rows="3" placeholder="Например: свидетельство о регистрации, договор купли-продажи..."></textarea></label>
-<label>Дополнительные обстоятельства<textarea id="facts" rows="4" placeholder="Кратко опишите ситуацию. Не указывайте лишние персональные данные."></textarea></label>
-<div style="margin:18px 0;padding:14px;background:#f6f7f8;border-radius:10px"><label style="display:block"><input type="checkbox" required> Я даю <a href="../personal-data-consent/" target="_blank" rel="noopener">согласие на обработку персональных данных</a> для формирования документа и подтверждаю ознакомление с <a href="../privacy-policy/" target="_blank" rel="noopener">Политикой обработки персональных данных</a>.</label><label style="display:block;margin-top:10px"><input type="checkbox" required> Я принимаю <a href="../terms/" target="_blank" rel="noopener">Пользовательское соглашение</a>.</label><p style="margin:10px 0 0;font-size:13px;color:#66727d">Содержимое полей обрабатывается локально в браузере и не сохраняется владельцем сервиса.</p></div><button type="submit">Сформировать заявление</button></form>
+<button type="submit">Сформировать заявление</button></form>
 <section id="outputWrap" hidden><h2>Предварительный текст</h2><div id="output" class="document"></div>
 <div class="actions"><button id="copy" type="button">Скопировать текст</button><button id="download" type="button">Скачать для Word</button><button id="print" type="button">Печать / PDF</button><button id="clear" type="button" class="secondary">Очистить</button></div>
 <p class="downloadHint">«Скачать для Word» создаёт редактируемый файл .doc. Кнопка «Печать / PDF» открывает системное окно печати, где можно выбрать «Сохранить как PDF».</p><p id="copyStatus" class="status"></p></section>
-<p class="notice"><strong>Важно:</strong> тестовая версия. Генератор не проверяет правовой статус конкретного автомобиля и не гарантирует, что выбранная формулировка подходит для вашей ситуации. Перед подачей документ необходимо проверить.</p>
-<p class="version">Версия 0.2 • RK Автоправо</p><div style="margin-top:18px;font-size:13px"><a href="../privacy-policy/">Политика обработки персональных данных</a> · <a href="../personal-data-consent/">Согласие на обработку персональных данных</a> · <a href="../terms/">Пользовательское соглашение</a></div></section></main><script src="script.js"></script></body></html>
+<p class="notice"><strong>Важно:</strong> тестовая версия. Ф.И.О., адрес, телефон, сведения об автомобиле, документах и обстоятельствах заполняются пользователем вручную в готовом документе. Перед подачей документ необходимо проверить.</p>
+<p class="version">Версия 0.3 • RK Автоправо</p><div style="margin-top:18px;font-size:13px"><a href="../terms/">Пользовательское соглашение</a></div>
+</section></main><script src="script.js"></script></body></html>
