@@ -52,11 +52,22 @@
         </select>
       </label>
 
+      <label>Как автомобиль оказался на территории РФ / нового региона?
+        <select id="arrival" required>
+          <option value="">Выберите вариант</option>
+          <option value="customs">Въехал через таможенный пункт</option>
+          <option value="frontline">Прибыл через линию соприкосновения / с освобождённой территории</option>
+          <option value="local">Уже находился на территории нового региона</option>
+          <option value="unknown">Не знаю / другой вариант</option>
+        </select>
+      </label>
+
       <button type="submit">Получить предварительный результат</button>
     </form>
 
     <section id="result" class="result" hidden></section>
     <p class="notice">Важно: это демонстрационный прототип. Он не содержит окончательной правовой квалификации и не заменяет проверку действующих нормативных актов и документов конкретного автомобиля.</p>
+    <p class="version">Версия 0.2 • тестовый проект RK Автоправо</p>
   </section>
 </main>
 <script src="script.js"></script>
