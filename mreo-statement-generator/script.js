@@ -1,14 +1,13 @@
 const form=document.getElementById("generator"),wrap=document.getElementById("outputWrap"),output=document.getElementById("output");
-const val=id=>document.getElementById(id).value.trim(),safe=s=>s.replace(/[<>]/g,"");
-function filename(){const n=safe(val("fio")).replace(/[^a-zA-Zа-яА-ЯёЁ0-9]+/g,"_").replace(/^_|_$/g,"");return "Заявление_в_МРЭО"+(n?"_"+n:"")}
+function filename(){return "Заявление_в_МРЭО"}
 form.addEventListener("submit",e=>{e.preventDefault();
- const fio=safe(val("fio")),address=safe(val("address")),phone=safe(val("phone")),mreo=safe(val("mreo"))||"Начальнику регистрационного подразделения Госавтоинспекции";
- const car=safe(val("car")),year=safe(val("year")),vin=safe(val("vin")),plate=safe(val("plate")),docs=safe(val("docs")),facts=safe(val("facts")),purpose=val("purpose");
- let request="Прошу провести регистрационные действия в отношении принадлежащего мне транспортного средства.";
+ const purpose=document.getElementById("purpose").value;
+ let request="Прошу провести регистрационные действия в отношении транспортного средства, сведения о котором указаны ниже.";
  if(purpose==="accept")request="Прошу принять представленные документы, рассмотреть настоящее заявление и принять решение по существу.";
  if(purpose==="written")request="Прошу рассмотреть вопрос о совершении регистрационных действий. В случае отказа прошу предоставить письменное решение с указанием фактических и правовых оснований.";
- const lines=[mreo,"","от: "+fio,"адрес: "+address+(phone?"\nтелефон: "+phone:""),"","ЗАЯВЛЕНИЕ","",request,"","Транспортное средство: "+car+(year?", "+year+" г.в.":"")+".","VIN: "+vin+(plate?"\nГосударственный регистрационный знак: "+plate:"")+".",docs?"\nИмеющиеся документы: "+docs+".":"",facts?"\nДополнительные обстоятельства: "+facts:"","\nПрошу сообщить о принятом решении в установленном порядке.","","Дата: ____________     Подпись: ____________ / "+fio+" /"];
- output.textContent=lines.filter(x=>x!=="").join("\n");wrap.hidden=false;wrap.scrollIntoView({behavior:"smooth"});
+ const line="____________________________________________";
+ const lines=["В: "+line,"","от: "+line,"Ф.И.О.: "+line,"адрес: "+line,line,"телефон: "+line,"","ЗАЯВЛЕНИЕ","",request,"","Данные транспортного средства:","Марка, модель: "+line,"Год выпуска: "+line,"VIN (номер кузова / шасси): "+line,"Государственный регистрационный знак (при наличии): "+line,"","Имеющиеся документы: "+line,line,"","Дополнительные обстоятельства: "+line,line,"","Прошу сообщить о принятом решении в установленном порядке.","","Дата: ____________     Подпись: ____________ / __________________________ /"];
+ output.textContent=lines.join("\n");wrap.hidden=false;wrap.scrollIntoView({behavior:"smooth"});
 });
 document.getElementById("copy").addEventListener("click",async()=>{try{await navigator.clipboard.writeText(output.textContent);document.getElementById("copyStatus").textContent="Текст скопирован."}catch(e){document.getElementById("copyStatus").textContent="Не удалось скопировать автоматически. Выделите текст вручную."}});
 document.getElementById("download").addEventListener("click",()=>{if(!output.textContent)return;const body=output.textContent.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n/g,"<br>");const doc='<!doctype html><html><head><meta charset="utf-8"><style>body{font-family:"Times New Roman";font-size:12pt;line-height:1.5;margin:2cm}</style></head><body>'+body+'</body></html>';const blob=new Blob(["\ufeff",doc],{type:"application/msword"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=filename()+".doc";document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1000)});
