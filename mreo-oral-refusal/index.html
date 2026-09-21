@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Заявление после устного отказа в МРЭО — RK Автоправо</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="wrap">
+  <section class="card">
+    <p class="eyebrow">RK АВТОПРАВО • ГЕНЕРАТОР ЗАЯВЛЕНИЯ</p>
+    <h1>Заявление после устного отказа в регистрации транспортного средства</h1>
+    <p class="lead">Заявление готовится заранее и используется после фактического отказа в регистрации, если письменное решение об отказе не предоставлено.</p>
+
+    <form id="generator">
+      <fieldset>
+        <legend>1. Подразделение МРЭО</legend>
+        <label>Наименование подразделения МРЭО
+          <input id="mreo" type="text" placeholder="Например: МРЭО Госавтоинспекции ..." required>
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>2. Персональные данные заявителя</legend>
+        <label>Фамилия
+          <input id="lastName" type="text" autocomplete="family-name" required>
+        </label>
+        <label>Имя
+          <input id="firstName" type="text" autocomplete="given-name" required>
+        </label>
+        <label>Отчество
+          <input id="middleName" type="text" autocomplete="additional-name" placeholder="При наличии">
+        </label>
+        <label>Адрес места жительства
+          <textarea id="address" rows="3" autocomplete="street-address" required></textarea>
+        </label>
+        <label>Телефон
+          <input id="phone" type="tel" autocomplete="tel" placeholder="+7 ...">
+        </label>
+      </fieldset>
+
+      <button type="submit">Сформировать черновик заявления</button>
+    </form>
+
+    <section id="result" class="result" hidden>
+      <h2>Черновик заявления</h2>
+      <pre id="documentText"></pre>
+    </section>
+
+    <p class="notice">Сейчас реализован только первый согласованный этап: подразделение МРЭО и персональные данные. Следующие поля будут добавляться поэтапно после согласования.</p>
+    <p class="version">Рабочая версия • RK Автоправо</p>
+  </section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
